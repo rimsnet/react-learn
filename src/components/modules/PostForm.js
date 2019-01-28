@@ -8,6 +8,7 @@ class PostForm extends React.Component {
 
     submitHander = e => {
         e.preventDefault();
+        
         const body = {
             title: e.target.title.value,
             body: e.target.body.value
