@@ -1,40 +1,35 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { fetchPost } from '../../actions/postAction';
 
 class Posts extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            posts: []
-        }
-    }
-
     componentDidMount() {
-
-        fetch('https://jsonplaceholder.typicode.com/posts').then(res => res.json()).then(response => {
-            this.setState({
-                posts: response
-            })
-        })
+        this.props.fetchPost();
     }
 
     render() {
-        
-        const postItems = this.state.posts.map(list => (
-            <li key={list.id}>{list.body}</li>
-        ));
+
+        const postItems = this.props.posts.map(list => (
+            <div key={list.id}>
+                <h3>{list.title}</h3>
+                <p>{list.body}</p>
+            </div>
+        ))
 
         return (
             <div>
                 <h3>Posts</h3>
                 <hr />
-                <ul>
-                   {postItems}
-                </ul>
+                {postItems}
             </div>
         )
     }
 
 }
 
-export default Posts;
+const mapStateToProps = state => ({
+    posts: state.posts.items
+})
+
+export default connect(mapStateToProps, { fetchPost })(Posts);
