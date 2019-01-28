@@ -19,14 +19,17 @@ class Posts extends React.Component {
     }
 
     render() {
+        
+        const postItems = this.state.posts.map(list => (
+            <li key={list.id}>{list.body}</li>
+        ));
+
         return (
             <div>
                 <h3>Posts</h3>
                 <hr />
                 <ul>
-                    {this.state.posts.map(list => (
-                        <li key={list.id}>{list.body}</li>
-                    ))}
+                   {postItems}
                 </ul>
             </div>
         )
