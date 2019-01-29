@@ -1,5 +1,5 @@
-import { FETCH_POST, NEW_POSTS } from '../actions/types';
-import { fetchPost } from '../actions/postAction';
+import { FETCH_POST, NEW_POST } from '../actions/types';
+import { fetchPost, newPost } from '../actions/postAction';
 
 const initialState = {
     items: [],
@@ -12,6 +12,11 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 items: action.payload
+            };
+        case NEW_POST:
+            return {
+                ...state,
+                item: action.payload
             };
         default: return state;
     }
