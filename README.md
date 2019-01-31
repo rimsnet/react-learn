@@ -66,6 +66,26 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/ad
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
+### API Request
+
+ const data = { username: e.target.username.value, password: e.target.password.value }
+
+    axios.post('https://domain.com/api/qc/v1/auth/login', data, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    }).then(res => {
+      this.setState({
+        login: res
+      })
+      console.log(res)
+    }).catch(err => {
+      this.setState({
+        login: {}
+      })
+    })
+
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
