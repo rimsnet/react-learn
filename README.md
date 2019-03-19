@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## install Redux React-Redux learn
+## install Redux React-Redux 
 npm i redux react-redux redux-thunk --save-dev
 
 ## Available Scripts
